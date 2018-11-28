@@ -6,6 +6,7 @@ namespace Battle
     {
         public Guid ReportEnlistment(string soldierName)
         {
+
             throw new NotImplementedException();
         }
 
