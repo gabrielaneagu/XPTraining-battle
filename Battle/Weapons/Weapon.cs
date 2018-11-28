@@ -4,6 +4,8 @@
     {
         public abstract int Damage { get; }
 
+        public virtual bool SpecializedWeapon => false;
+
         public static bool operator <(Weapon left, Weapon right)
         {
             return left.Damage < right.Damage;
