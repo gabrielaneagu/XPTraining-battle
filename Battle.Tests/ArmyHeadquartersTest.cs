@@ -1,4 +1,5 @@
 ﻿using System;
+using FluentAssertions;
 using NSubstitute;
 using Xunit;
 
@@ -56,6 +57,26 @@ namespace Battle.Tests
 
             winnerHqMock.Received().ReportVictory(1);
             loserHqMock.DidNotReceive().ReportVictory(Arg.Any<int>());
+        }
+
+        [Fact]
+        public void Army_WarWonGetsNumberOfVictoriesIncreased()
+        {
+            var winnerHq = new Headquarters();
+            winnerHq.ReportEnlistment(Arg.Any<string>()).Returns(Guid.NewGuid());
+
+            var loserHqMock = Substitute.For<IHeadquarters>();
+            loserHqMock.ReportEnlistment(Arg.Any<string>()).Returns(Guid.NewGuid());
+
+            var winners = new Army(winnerHq);
+            winners.EnlistSoldier(new Soldier("Private Ryan"));
+
+            var losers = new Army(loserHqMock);
+            losers.EnlistSoldier(new Soldier("Himmler"));
+
+            winners.Engage(losers);
+
+            winnerHq.NumberOfVictories.Should().Be(1);
         }
     }
 }

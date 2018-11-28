@@ -4,6 +4,10 @@ namespace Battle
 {
     public class Headquarters : IHeadquarters
     {
+        private int _numberOfVictories;
+
+        public int NumberOfVictories => _numberOfVictories;
+
         public Guid ReportEnlistment(string soldierName)
         {
 
@@ -17,7 +21,7 @@ namespace Battle
 
         public void ReportVictory(int remainingNumberOfSoldiers)
         {
-            throw new NotImplementedException();
+            _numberOfVictories++;
         }
     }
 }
