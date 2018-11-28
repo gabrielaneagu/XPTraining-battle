@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Battle
 {
@@ -8,6 +9,8 @@ namespace Battle
 
         public int NumberOfVictories => _numberOfVictories;
 
+        private readonly List<Guid> _deadSoldiers = new List<Guid>();
+ 
         public Guid ReportEnlistment(string soldierName)
         {
             return Guid.NewGuid();
@@ -15,7 +18,7 @@ namespace Battle
 
         public void ReportCasualty(Guid soldierId)
         {
-            throw new NotImplementedException();
+            _deadSoldiers.Add(soldierId);
         }
 
         public void ReportVictory(int remainingNumberOfSoldiers)
