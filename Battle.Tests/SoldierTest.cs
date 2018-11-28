@@ -80,5 +80,20 @@ namespace Battle.Tests
 
             himmler.Fight(ryan).Should().BeFalse();
         }
+
+        [Fact]
+        public void Construction_AttackerWins()
+        {
+            var ryan = new Soldier("Private Ryan")
+            {
+                Weapon = new Axe()
+            };
+            var himmler = new Soldier("Himmler")
+            {
+                Weapon = new Axe()
+            };
+
+            ryan.Fight(himmler).Should().BeTrue();
+        }
     }
 }
