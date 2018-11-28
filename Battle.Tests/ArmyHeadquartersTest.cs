@@ -63,7 +63,6 @@ namespace Battle.Tests
         public void Army_WarWonGetsNumberOfVictoriesIncreased()
         {
             var winnerHq = new Headquarters();
-            winnerHq.ReportEnlistment(Arg.Any<string>()).Returns(Guid.NewGuid());
 
             var loserHqMock = Substitute.For<IHeadquarters>();
             loserHqMock.ReportEnlistment(Arg.Any<string>()).Returns(Guid.NewGuid());
