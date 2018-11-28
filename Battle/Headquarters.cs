@@ -10,8 +10,7 @@ namespace Battle
 
         public Guid ReportEnlistment(string soldierName)
         {
-
-            throw new NotImplementedException();
+            return Guid.NewGuid();
         }
 
         public void ReportCasualty(Guid soldierId)
