@@ -5,7 +5,7 @@ using System.Linq;
 namespace Battle
 {
     public class Army
-    {   //test 2
+    {   
         private readonly List<Soldier> _soldiers;
 
         public IHeadquarters Headquarters { get; set; }
