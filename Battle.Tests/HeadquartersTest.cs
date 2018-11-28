@@ -1,4 +1,5 @@
 ﻿using System;
+using NSubstitute;
 using Xunit;
 
 namespace Battle.Tests
